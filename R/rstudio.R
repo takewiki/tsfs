@@ -21,3 +21,25 @@ rstudio_server <- function(os='ubuntu18',repo='./data-raw',version='lastest') {
 
 }
 
+
+#' 下载shiny server
+#'
+#' @param os 操作系统
+#' @param repo 下载目录
+#' @param version 版本
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples
+#' shiny_server()
+#' shiny_server()
+#' shiny_server('centos')
+shiny_server <- function(os='ubuntu',repo='./data-raw',version='lastest') {
+  res <- pull(appName = 'shinyserver',appVersion = version,osName = os,repo = repo)
+  return(res)
+
+}
+
+
+

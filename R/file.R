@@ -123,8 +123,14 @@ repo_fileName <- function(appName='shinyserver',appVersion='lastest',osName='ubu
 #' print(bb)
 #' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'ubuntu18',repo = './data-raw')
 #' print(bb)
+#' bb <- pull(appName = 'shinyserver',appVersion = '1.5.13.944',osName = 'centos')
+#' bb <- pull(appName = 'shinyserver',appVersion = '1.5',osName = 'centos')
+#' bb <- pull(appName = 'shinyserver',appVersion = 'lastest',osName = 'centos')
+#' bb <- pull(appName = 'shinyserver',appVersion = '1.5.13.944',osName = 'ubuntu')
+#' bb <- pull(appName = 'shinyserver',appVersion = '1.5',osName = 'ubuntu')
+#' bb <- pull(appName = 'shinyserver',appVersion = 'lastest',osName = 'ubuntu')
 
-pull <- function(appName='shinyserver',appVersion='lastest',osName='ubuntu',repo="./"){
+pull <- function(appName='shinyserver',appVersion='lastest',osName='ubuntu',repo="./data-raw"){
   file_dl <- fileName(appName,appVersion,osName)
   file_repo <- repo_fileName(appName,appVersion,osName,repo)
   r <- download.file(file_dl,file_repo,quiet = TRUE)

@@ -5,7 +5,7 @@
 \title{提取数据}
 \usage{
 pull(appName = "shinyserver", appVersion = "lastest",
-  osName = "ubuntu", repo = "./")
+  osName = "ubuntu", repo = "./data-raw")
 }
 \arguments{
 \item{appName}{文件名称}
@@ -60,4 +60,10 @@ bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'ubuntu18',repo
 print(bb)
 bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'ubuntu18',repo = './data-raw')
 print(bb)
+bb <- pull(appName = 'shinyserver',appVersion = '1.5.13.944',osName = 'centos')
+bb <- pull(appName = 'shinyserver',appVersion = '1.5',osName = 'centos')
+bb <- pull(appName = 'shinyserver',appVersion = 'lastest',osName = 'centos')
+bb <- pull(appName = 'shinyserver',appVersion = '1.5.13.944',osName = 'ubuntu')
+bb <- pull(appName = 'shinyserver',appVersion = '1.5',osName = 'ubuntu')
+bb <- pull(appName = 'shinyserver',appVersion = 'lastest',osName = 'ubuntu')
 }

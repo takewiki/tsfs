@@ -2,4 +2,5 @@
 
 export(pull)
 export(rstudio_server)
+export(shiny_server)
 import(tsdo)
