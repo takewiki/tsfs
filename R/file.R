@@ -46,9 +46,93 @@ fileName <- function(appName='shinyserver',appVersion='lastest',osName='ubuntu')
 }
 
 
+#' 形成本地的文件
+#'
+#' @param appName 文件名
+#' @param appVersion 文件版本
+#' @param osName 操作系统
+#' @param repo 下载路径
+#'
+#' @return 返回值
+#' @import tsdo
+#'
+#' @examples
+#' repo_fileName()
+repo_fileName <- function(appName='shinyserver',appVersion='lastest',osName='ubuntu',repo='./'){
+
+  fullName <- paste(appName,osName,appVersion,sep = "_");
+  suffix <- file_format_guess(osName);
+  fullName2 <- paste(fullName,suffix,sep="")
+  if (right(repo,1) != '/'){
+    repo <- paste(repo,"/",sep="")
+  }
+  res <-paste(repo,fullName2,sep = '')
+
+
+  return(res)
+
+
+}
+
+
+#' 提取数据
+#'
+#' @param appName 文件名称
+#' @param appVersion 文件版本
+#' @param osName  操作系统名称
+#' @param repo 下载路径
+#'
+#' @return 下载成功返回TRUE否则返回FALSE
+#' @export
+#'
+#' @examples
+#' library(tsfs)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'centos6',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'centos6',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'centos6',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'centos7',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'centos7',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'centos7',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'centos8',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'centos8',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'centos8',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'ubuntu14',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'ubuntu14',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'ubuntu14',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'ubuntu16',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'ubuntu16',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'ubuntu16',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2.5033',osName = 'ubuntu18',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = '1.2',osName = 'ubuntu18',repo = './data-raw')
+#' print(bb)
+#' bb <- pull(appName = 'rstudioserver',appVersion = 'lastest',osName = 'ubuntu18',repo = './data-raw')
+#' print(bb)
+
 pull <- function(appName='shinyserver',appVersion='lastest',osName='ubuntu',repo="./"){
   file_dl <- fileName(appName,appVersion,osName)
-  res <- download.file(file_dl,repo)
+  file_repo <- repo_fileName(appName,appVersion,osName,repo)
+  r <- download.file(file_dl,file_repo,quiet = TRUE)
+  if(r == 0){
+    res <-TRUE
+  }else{
+    res <- FALSE
+  }
   return(res)
 
 }
