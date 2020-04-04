@@ -1,7 +1,7 @@
 Package: tsfs
 Type: Package
 Title: file storage for takewiki solutions
-Version: 1.0.1
+Version: 1.0.2
 Author: hulilei
 Maintainer: hulilei <hulilei@takewiki.com.cn>
 Description: takewiki solution file storage service
