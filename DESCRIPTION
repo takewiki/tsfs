@@ -1,7 +1,7 @@
 Package: tsfs
 Type: Package
 Title: file storage for takewiki solutions
-Version: 1.1.0
+Version: 1.2.0
 Author: hulilei
 Maintainer: hulilei <hulilei@takewiki.com.cn>
 Description: takewiki solution file storage service
@@ -12,5 +12,6 @@ LazyData: true
 RoxygenNote: 6.1.1
 Collate: 
     'file.R'
+    'jdbc.R'
     'package.R'
     'rstudio.R'
